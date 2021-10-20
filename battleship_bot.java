@@ -9,7 +9,7 @@ public class TestPlayer extends Player {
   Set<Integer> empty_space = populateEmptySpace();
 
   public static int GRID_WIDTH = 10;
-  public static int GRID_LENGTH = 10;
+  public static int GRID_HEIGHT = 10;
 
   public Boolean focus = false;
   public int last_move_x = 0;
@@ -26,9 +26,8 @@ public class TestPlayer extends Player {
     int x = 0;
 
     // Check if last fire was a hit
-    if (map[last_move_x][last_move_y] == battleship.Maps.mapStates.HIT) {
+    if (map[last_move_x][last_move_y] == battleship.Maps.mapStates.HIT)
       focus = True;
-    }
 
 
     // If the last fire was a hit, try to sink the rest of the ship
@@ -63,9 +62,9 @@ public class TestPlayer extends Player {
   // Check if coordinates are on the board,
   // ex: 11, 5 returns false
   public boolean checkSquareValid(int x, int y) {
-    return (!(x > grid_width-1 || 
+    return (!(x > GRID_WIDTH-1 || 
     x < 0 ||
-    y > grid_length-1 ||
+    y > GRID_HEIGHT-1 ||
     y < 0))
   }
 
